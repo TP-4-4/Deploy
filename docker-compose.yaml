@@ -11,7 +11,7 @@ services:
       - my_network
     build:
       context: .
-      dockerfile: Dockerfile.backend  # Update this if needed
+      dockerfile: Dockerfile.backend
     restart: always
     command: sh -c "python Backend-main/manage.py migrate && python Backend-main/manage.py runserver 0.0.0.0:8080"
     ports:
