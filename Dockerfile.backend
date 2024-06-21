@@ -7,3 +7,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY Backend-main /app/Backend-main
 
 EXPOSE 8080
+
+CMD ["python", "Backend-main/manage.py", "runserver", "0.0.0.0:8080"]
