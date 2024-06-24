@@ -13,6 +13,20 @@ services:
       context: .
       dockerfile: Dockerfile.backend
     restart: always
-    command: sh -c "python Backend-main/manage.py migrate && python Backend-main/manage.py runserver 0.0.0.0:8080"
+    command: sh -c "python Backend-main/manage.py runserver 0.0.0.0:30"
     ports:
-      - "8080:8080"
+      - "30:30"
+
+  frontend:
+    container_name: frontend
+    networks:
+      - my_network
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    restart: always
+    command: npm start
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
