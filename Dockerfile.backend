@@ -2,10 +2,10 @@ FROM python:3.9
 
 WORKDIR /app
 COPY Backend-main/requirements.txt /app/
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 COPY Backend-main /app/Backend-main
 
-EXPOSE 8080
+EXPOSE 30
 
-CMD ["python", "Backend-main/manage.py", "runserver", "0.0.0.0:8080"]
+CMD ["python", "Backend-main/manage.py", "runserver", "0.0.0.0:30"]
